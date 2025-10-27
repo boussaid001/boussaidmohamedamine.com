@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Boussaid Mohamed Amine - Software Engineering Student specializing in full-stack development, cloud deployment, and AI integration">
+    <meta name="keywords" content="Software Engineer, Full-Stack Developer, Cloud, AI, Portfolio">
+    <meta name="author" content="Boussaid Mohamed Amine">
+    <title>Boussaid Mohamed Amine | Software Engineering Student</title>
+    <link rel="icon" type="image/png" href="BMA.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">BMA<span>.</span></a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link" id="nav-home">Home</a></li>
+                <li><a href="#news" class="nav-link" id="nav-news">News</a></li>
+                <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+                <li><a href="#experience" class="nav-link" id="nav-experience">Experience</a></li>
+                <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+                <li><a href="#github" class="nav-link" id="nav-github">GitHub</a></li>
+                <li><a href="#skills" class="nav-link" id="nav-skills">Skills</a></li>
+                <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+                <li>
+                    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+                        <i class="fas fa-language"></i>
+                        <span id="lang-label">EN</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Profile Card - Left Side -->
+                <div class="hero-profile-card">
+                    <div class="profile-image-container">
+                        <img src="assets/images/profile.jpg" alt="Boussaid Mohamed Amine" id="profileImage" class="profile-image">
+                        <div class="profile-overlay"></div>
+                    </div>
+                    <div class="profile-info-card">
+                        <div class="profile-info-item">
+                            <i class="fas fa-university"></i>
+                            <div>
+                                <span class="info-label" id="profile-university-label">University</span>
+                                <span class="info-value" id="profile-university-value">Polytechnic Sousse</span>
+                            </div>
+                        </div>
+                        <div class="profile-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="info-label" id="profile-location-label">Location</span>
+                                <span class="info-value" id="profile-location-value">Monastir, Tunisia</span>
+                            </div>
+                        </div>
+                        <div class="profile-info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <span class="info-label" id="profile-status-label">Status</span>
+                                <span class="info-value status-seeking" id="profile-status-value">Seeking Internship</span>
+                            </div>
+                        </div>
+                        <a href="assets/images/Boussaidmohamedamine.pdf" target="_blank" rel="noopener noreferrer" class="cv-download-btn" id="cv-download-btn">
+                            <i class="fas fa-file-pdf"></i>
+                            <span id="cv-btn-text">View Curriculum Vitae</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Text - Right Side -->
+                <div class="hero-text">
+                    <h1 class="hero-title"><span id="hero-title-prefix">Hi, I'm</span> <span class="highlight">Boussaid Mohamed Amine</span></h1>
+                    <h2 class="hero-subtitle" id="hero-subtitle">Software Engineering Student</h2>
+                    <p class="hero-description" id="hero-description">
+                        A passionate software engineering student with strong problem-solving abilities and expertise in full-stack development, 
+                        cloud deployment, and AI integration. Building scalable applications with modern architectures.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary scroll-link" id="contact-me-btn">
+                            <i class="fas fa-envelope"></i> Contact Me
+                        </a>
+                        <a href="#projects" class="btn btn-secondary scroll-link" id="view-projects-btn">
+                            <i class="fas fa-code"></i> View Projects
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:mohamedamine.boussaid@polytechnicien.tn" class="social-link" title="Email" target="_blank">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com/Boussaid001" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="tel:+21695869735" class="social-link" title="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/boussaidmohamedamine/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="bg-shape shape-1"></div>
+            <div class="bg-shape shape-2"></div>
+            <div class="bg-shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <h2 class="section-title" id="news-title">Recent News & Achievements</h2>
+            <div class="news-grid">
+                <!-- Competitive Programming Trophy -->
+                <div class="news-card trophy-card" id="news-card-1">
+                    <div class="news-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="news-date">
+                        <i class="far fa-calendar"></i> <span class="news-date-text">October 26, 2025</span>
+                    </div>
+                    <h3>2nd Place - Competitive Programming</h3>
+                    <p>Secured 2nd place at Polytechnic Sousse and ranked 27th in Tunisia in the competitive programming competition!</p>
+                    <div class="news-tags">
+                        <span><i class="fas fa-trophy"></i> Competition</span>
+                        <span><i class="fas fa-code"></i> Algorithms</span>
+                    </div>
+                </div>
+
+                <!-- SmartMoney Launch -->
+                <div class="news-card live" id="news-card-2">
+                    <div class="news-icon rocket">
+                        <img src="https://img.icons8.com/fluency/96/money-bag.png" alt="SmartMoney" class="news-logo">
+                    </div>
+                    <div class="news-date">
+                        <i class="far fa-calendar"></i> <span class="news-date-text">October 2025</span>
+                    </div>
+                    <h3>SmartMoney.expert Pre-Production</h3>
+                    <p>Successfully launched SmartMoney platform in pre-production! Canadian immigration and investment solution now live.</p>
+                    <div class="news-tags">
+                        <span><i class="fas fa-globe"></i> Live</span>
+                        <span><i class="fas fa-briefcase"></i> Project</span>
+                    </div>
+                </div>
+
+                <!-- EarnBits Development -->
+                <div class="news-card dev" id="news-card-3">
+                    <div class="news-icon code">
+                        <img src="https://img.icons8.com/fluency/96/bitcoin.png" alt="EarnBits" class="news-logo">
+                    </div>
+                    <div class="news-date">
+                        <i class="far fa-calendar"></i> <span class="news-date-text">October 2025</span>
+                    </div>
+                    <h3>EarnBits.online In Development</h3>
+                    <p>Digital advertising & rewards platform is actively under development with microservices architecture and CI/CD pipeline.</p>
+                    <div class="news-tags">
+                        <span><i class="fas fa-hammer"></i> Dev Mode</span>
+                        <span><i class="fas fa-lightbulb"></i> Innovation</span>
+                    </div>
+                </div>
+
+                <!-- JCI Khniss Winner -->
+                <div class="news-card winner" id="news-card-4">
+                    <div class="news-icon medal">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="news-date">
+                        <i class="far fa-calendar"></i> <span class="news-date-text">2023</span>
+                    </div>
+                    <h3>JCI Khniss Problem Solving Champion</h3>
+                    <p>First place winner in JCI Khniss Problem Solving competition, demonstrating exceptional analytical and creative thinking skills!</p>
+                    <div class="news-tags">
+                        <span><i class="fas fa-award"></i> Winner</span>
+                        <span><i class="fas fa-brain"></i> Problem Solving</span>
+                    </div>
+                </div>
+
+                <!-- Competitive Programming 2024 -->
+                <div class="news-card achievement" id="news-card-5">
+                    <div class="news-icon star">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="news-date">
+                        <i class="far fa-calendar"></i> <span class="news-date-text">October 2024</span>
+                    </div>
+                    <h3>3rd Place - Polytechnic Tunisia</h3>
+                    <p>Achieved 3rd place in Polytechnic Tunisia competitive programming competition, showcasing strong algorithmic skills.</p>
+                    <div class="news-tags">
+                        <span><i class="fas fa-medal"></i> Bronze</span>
+                        <span><i class="fas fa-chart-line"></i> Ranking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" id="about-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3 id="about-education-title">Education</h3>
+                    <div class="education-item">
+                        <h4 id="about-poly-name">Polytechnic Sousse</h4>
+                        <p class="degree" id="about-poly-degree">Software Engineering</p>
+                        <p class="period">2023 - 2026</p>
+                    </div>
+                    <div class="education-item">
+                        <h4 id="about-isimm-name">Higher Institute Of Mathematics And Computer Science Monastir</h4>
+                        <p class="degree" id="about-isimm-degree">Bachelor's in Computer Science and Information Systems</p>
+                        <p class="period">2020 - 2023</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3 id="about-cert-title">Certifications</h3>
+                    <ul class="cert-list">
+                        <li>
+                            <strong id="cert-cisco">Cisco DevNet Associate</strong>
+                            <span>2025-2027</span>
+                        </li>
+                        <li>
+                            <strong id="cert-ccna">CCNA 1 & 2</strong>
+                            <span>2024-2026</span>
+                        </li>
+                        <li>
+                            <strong id="cert-scrum">SFPC™ Scrum Fundamentals</strong>
+                            <span>2024-2026</span>
+                        </li>
+                        <li>
+                            <strong id="cert-mongodb">MongoDB Certification</strong>
+                            <span>2024-2026</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-language"></i>
+                    <h3 id="about-lang-title">Languages</h3>
+                    <div class="language-item">
+                        <span id="lang-arabic">Arabic</span>
+                        <span class="level" id="lang-arabic-level">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span id="lang-french">French</span>
+                        <span class="level" id="lang-french-level">DELF B2</span>
+                    </div>
+                    <div class="language-item">
+                        <span id="lang-english">English</span>
+                        <span class="level" id="lang-english-level">B2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title" id="experience-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" id="exp-altadigit">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2025 - September 2025</span>
+                        <h3 id="exp-altadigit-title">Summer Internship - AltaDigit</h3>
+                        <span class="duration" id="exp-altadigit-duration">Duration: 2 months</span>
+                        <ul>
+                            <li id="exp-altadigit-b1">Developed SmartMoney platform: comprehensive Canadian immigration and investment solution</li>
+                            <li id="exp-altadigit-b2">Implemented real estate management, financial markets integration, and AI-powered tools</li>
+                            <li id="exp-altadigit-b3">Deployed on VPS infrastructure with pre-production grade optimizations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="exp-titc">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">December 2021 - January 2025</span>
+                        <h3 id="exp-titc-title">Co-founder - TITC</h3>
+                        <span class="duration" id="exp-titc-duration">Duration: 4 years</span>
+                        <ul>
+                            <li id="exp-titc-b1">Led online event podcasts and built IT community initiatives across Tunisia</li>
+                            <li id="exp-titc-b2">Managed graphic design and IT infrastructure for community engagement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="exp-tudigisec">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2024 - September 2024</span>
+                        <h3 id="exp-tudigisec-title">Summer Internship - TUDIGISEC</h3>
+                        <span class="duration" id="exp-tudigisec-duration">Duration: 2 months</span>
+                        <ul>
+                            <li id="exp-tudigisec-b1">Developed security platform with multi-tenancy architecture</li>
+                            <li id="exp-tudigisec-b2">Contributed to specifications and conceptual architecture design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="exp-tunisiancloud">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">February 2023 - June 2023</span>
+                        <h3 id="exp-tunisiancloud-title">Bachelor's Degree Internship - Tunisian Cloud</h3>
+                        <span class="duration" id="exp-tunisiancloud-duration">Duration: 5 months</span>
+                        <ul>
+                            <li id="exp-tunisiancloud-b1">Built agile and predictive project management platform</li>
+                            <li id="exp-tunisiancloud-b2">Created technical specifications and architectural documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title" id="projects-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- SmartMoney -->
+                <a href="https://srv938070.hstgr.cloud/" target="_blank" rel="noopener noreferrer" class="project-card featured">
+                    <div class="project-header">
+                        <i class="fas fa-globe project-icon"></i>
+                        <span class="project-badge live" id="badge-smartmoney">Live Platform</span>
+                    </div>
+                    <h3>SmartMoney</h3>
+                    <p class="project-type" id="type-smartmoney">Canadian Immigration & Investment Platform</p>
+                    <p class="project-desc" id="desc-smartmoney">
+                        Full-stack web application integrated with real estate, financial markets, AI financial assistant, and immigration resources.
+                        Deployed on VPS with Nginx, SSL/TLS encryption, and PM2 process management.
+                    </p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                        <span>PostgreSQL</span>
+                        <span>OpenAI API</span>
+                        <span>PWA</span>
+                    </div>
+                </a>
+
+                <!-- EarnBits -->
+                <a href="https://earnbits.online/" target="_blank" rel="noopener noreferrer" class="project-card featured">
+                    <div class="project-header">
+                        <i class="fas fa-ad project-icon"></i>
+                        <span class="project-badge demo" id="badge-earnbits">Live Demo</span>
+                    </div>
+                    <h3>EarnBits</h3>
+                    <p class="project-type" id="type-earnbits">Digital Advertising & Rewards Platform</p>
+                    <p class="project-desc" id="desc-earnbits">
+                        Microservices architecture with campaign management, real-time bidding, payment processing, and analytics dashboard.
+                        Containerized deployment with CI/CD pipeline.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Angular</span>
+                        <span>Golang</span>
+                        <span>PostgreSQL</span>
+                        <span>Docker</span>
+                        <span>Stripe API</span>
+                        <span>OAuth2.0</span>
+                    </div>
+                </a>
+
+                <!-- Vahila -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-shopping-cart project-icon"></i>
+                    </div>
+                    <h3>Vahila</h3>
+                    <p class="project-type" id="type-vahila">E-commerce Microservices Platform</p>
+                    <p class="project-desc" id="desc-vahila">
+                        Event-driven architecture implementing distributed systems principles with message queuing, caching, and gRPC communication.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Node.js</span>
+                        <span>Docker</span>
+                        <span>Kafka</span>
+                        <span>gRPC</span>
+                        <span>GraphQL</span>
+                        <span>Redis</span>
+                    </div>
+                </div>
+
+                <!-- YouTube Auto Responder -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-robot project-icon"></i>
+                    </div>
+                    <h3>YouTube Auto Responder</h3>
+                    <p class="project-type" id="type-youtube">AI-Powered Comment Response System</p>
+                    <p class="project-desc" id="desc-youtube">
+                        Intelligent auto-reply with sentiment analysis using GPT-4. Real-time comment monitoring with contextual response generation.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>OpenAI GPT-4</span>
+                        <span>YouTube API</span>
+                        <span>Flask</span>
+                        <span>NLP</span>
+                    </div>
+                </div>
+
+                <!-- DataFlow Analytics -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-chart-line project-icon"></i>
+                    </div>
+                    <h3>DataFlow Analytics</h3>
+                    <p class="project-type" id="type-dataflow">Big Data Processing Platform</p>
+                    <p class="project-desc" id="desc-dataflow">
+                        Distributed processing system handling large-scale data with real-time analytics, ETL pipelines, and ML model integration.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Hadoop</span>
+                        <span>Apache Spark</span>
+                        <span>Python</span>
+                        <span>Kafka</span>
+                        <span>ElasticSearch</span>
+                    </div>
+                </div>
+
+                <!-- TeamFlow -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-users project-icon"></i>
+                    </div>
+                    <h3>TeamFlow</h3>
+                    <p class="project-type" id="type-teamflow">Agile & Predictive Project Management</p>
+                    <p class="project-desc" id="desc-teamflow">
+                        Platform for agile execution, collaboration, and resource management with sprint planning, task tracking, and Gantt charts.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Angular</span>
+                        <span>Golang</span>
+                        <span>PostgreSQL</span>
+                        <span>Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Repositories Section -->
+    <section id="github" class="github-section">
+        <div class="container">
+            <h2 class="section-title" id="github-title">GitHub Repositories</h2>
+            <div class="github-stats">
+                <div class="stat-card">
+                    <i class="fab fa-github"></i>
+                    <h3 id="repo-count">--</h3>
+                    <p id="github-repos-label">Repositories</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <h3 id="stars-count">--</h3>
+                    <p id="github-stars-label">Total Stars</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-code-branch"></i>
+                    <h3 id="forks-count">--</h3>
+                    <p id="github-forks-label">Total Forks</p>
+                </div>
+            </div>
+            <div id="repos-container" class="repos-grid">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading repositories...</p>
+                </div>
+            </div>
+            <div class="github-actions">
+                <button id="expand-repos-btn" class="btn btn-secondary expand-btn" onclick="toggleReposExpand()" style="display: none;">
+                    <i class="fas fa-chevron-down" id="expand-icon"></i> <span id="show-more-btn">Show More</span>
+                </button>
+                <a href="https://github.com/boussaid001" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fab fa-github"></i> <span id="view-all-btn">View All on GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title" id="skills-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skill-tags">
+                        <span>JavaScript</span>
+                        <span>TypeScript</span>
+                        <span>Python</span>
+                        <span>Golang</span>
+                        <span>Java</span>
+                        <span>Dart</span>
+                        <span>C++</span>
+                        <span>Scala</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skill-tags">
+                        <span>React</span>
+                        <span>Angular</span>
+                        <span>Flutter</span>
+                        <span>PWA</span>
+                        <span>Tailwind CSS</span>
+                        <span>Material UI</span>
+                        <span>Bootstrap</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skill-tags">
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                        <span>Golang/Gin</span>
+                        <span>Django</span>
+                        <span>Spring Boot</span>
+                        <span>Flask</span>
+                        <span>Laravel</span>
+                        <span>Java EE</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <div class="skill-tags">
+                        <span>PostgreSQL</span>
+                        <span>MongoDB</span>
+                        <span>MySQL</span>
+                        <span>Redis</span>
+                        <span>Firebase</span>
+                        <span>SQLite</span>
+                        <span>HDFS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span>VPS (Hostinger/OVH)</span>
+                        <span>Docker</span>
+                        <span>Kubernetes</span>
+                        <span>Nginx</span>
+                        <span>PM2</span>
+                        <span>CI/CD</span>
+                        <span>GitHub Actions</span>
+                        <span>Jenkins</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> Architecture</h3>
+                    <div class="skill-tags">
+                        <span>Microservices</span>
+                        <span>REST APIs</span>
+                        <span>GraphQL</span>
+                        <span>gRPC</span>
+                        <span>Event-Driven</span>
+                        <span>Kafka</span>
+                        <span>OAuth2.0</span>
+                        <span>JWT</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> AI & Data</h3>
+                    <div class="skill-tags">
+                        <span>OpenAI GPT</span>
+                        <span>NLP</span>
+                        <span>Apache Spark</span>
+                        <span>Hadoop</span>
+                        <span>Scikit-learn</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>TensorFlow</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
+                    <div class="skill-tags soft-skills">
+                        <span>Problem-Solving</span>
+                        <span>Leadership</span>
+                        <span>Teamwork</span>
+                        <span>Time Management</span>
+                        <span>Communication</span>
+                        <span>Critical Thinking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="leadership">
+        <div class="container">
+            <h2 class="section-title" id="leadership-title">Leadership & Community</h2>
+            <div class="leadership-grid">
+                <div class="leadership-card" id="leader-ieee">
+                    <i class="fas fa-bolt"></i>
+                    <h3 id="leader-ieee-name">IEEE Organization</h3>
+                    <p class="role" id="leader-ieee-role">Member</p>
+                    <p class="period">2024 - Present</p>
+                </div>
+                <div class="leadership-card" id="leader-acm">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3 id="leader-acm-name">ACM EPS Club</h3>
+                    <p class="role" id="leader-acm-role">Member</p>
+                    <p class="period">2024 - 2025</p>
+                </div>
+                <div class="leadership-card" id="leader-cpu">
+                    <i class="fas fa-palette"></i>
+                    <h3 id="leader-cpu-name">CPU ISIMM</h3>
+                    <p class="role" id="leader-cpu-role">Graphic Designer</p>
+                    <p class="period">2021 - 2023</p>
+                </div>
+                <div class="leadership-card" id="leader-ycm">
+                    <i class="fas fa-star"></i>
+                    <h3 id="leader-ycm-name">Young Creative Minds</h3>
+                    <p class="role" id="leader-ycm-role">Vice President</p>
+                    <p class="period">2019 - 2021</p>
+                </div>
+            </div>
+            <div class="interests">
+                <h3 id="interests-title">Areas of Interest</h3>
+                <div class="interest-tags">
+                    <span id="interest-1"><i class="fas fa-lightbulb"></i> Technology Innovation</span>
+                    <span id="interest-2"><i class="fas fa-network-wired"></i> Distributed Systems</span>
+                    <span id="interest-3"><i class="fas fa-cloud"></i> Cloud Architecture</span>
+                    <span id="interest-4"><i class="fas fa-brain"></i> AI/Machine Learning</span>
+                    <span id="interest-5"><i class="fas fa-code-branch"></i> Open Source Contribution</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" id="contact-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-intro">
+                    <h3 id="contact-heading">Let's work together!</h3>
+                    <p id="contact-description">I'm currently seeking internship opportunities. Feel free to reach out if you'd like to discuss potential collaborations or projects.</p>
+                </div>
+                <div class="contact-grid">
+                    <a href="mailto:mohamedamine.boussaid@polytechnicien.tn" class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 id="contact-email-label">Email</h4>
+                        <p>mohamedamine.boussaid@polytechnicien.tn</p>
+                    </a>
+                    
+                    <a href="tel:+21695869735" class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4 id="contact-phone-label">Phone</h4>
+                        <p>+216 95 869 735</p>
+                    </a>
+                    
+              
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Boussaid Mohamed Amine. <span id="footer-rights">All rights reserved.</span></p>
+            <div class="footer-links">
+                <a href="https://github.com/Boussaid001" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:mohamedamine.boussaid@polytechnicien.tn"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+21695869735"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
