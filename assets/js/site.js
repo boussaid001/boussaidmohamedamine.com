@@ -183,7 +183,7 @@
     { q: 'Make it work, make it right, make it fast.', a: 'Kent Beck' },
     { q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman' },
     { q: 'Code is like humor. When you have to explain it, it is bad.', a: 'Cory House' },
-    { q: 'I\'ll take a potato chip... AND EAT IT!', a: 'Light Yagami, Death Note' }
+    { q: 'Talk is cheap. Show me the code.', a: 'Linus Torvalds' }
   ];
   var qmount = document.getElementById('quote-card');
   if (qmount) {
@@ -201,8 +201,8 @@
     ['classic', 'Classic'],
     ['dog', 'Dog'],
     ['tora', 'Tora'],
-    ['maia', 'Maia (maia.crimew.gay)'],
-    ['vaporwave', 'Vaporwave (nya.rest)'],
+    ['maia', 'Maia'],
+    ['vaporwave', 'Vaporwave'],
     ['ramxcodes', 'Boussaid']
   ];
   var petPicker = null;
