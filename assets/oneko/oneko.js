@@ -2,9 +2,9 @@
 (async function oneko() {
   const nekoEl = document.createElement("div");
   let nekoPosX = 32,
-    nekoPosY = 32,
-    mousePosX = 0,
-    mousePosY = 0,
+    nekoPosY = 88,
+    mousePosX = 32,
+    mousePosY = 88,
     frameCount = 0,
     idleTime = 0,
     idleAnimation = null,
@@ -16,6 +16,57 @@
     kuroNeko = false,
     variant = "classic",
     autoSleepActive = false;
+
+  // Keep the cat where it was across page navigations (per-tab session)
+  const POSE_KEY = "oneko:pos";
+  function clampIntoViewport() {
+    nekoPosX = Math.min(Math.max(nekoPosX, 32), Math.max(32, window.innerWidth - 32));
+    nekoPosY = Math.min(Math.max(nekoPosY, 32), Math.max(32, window.innerHeight - 32));
+  }
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(POSE_KEY));
+    if (saved && typeof saved.x === "number" && typeof saved.y === "number") {
+      nekoPosX = saved.x;
+      nekoPosY = saved.y;
+      clampIntoViewport();
+      mousePosX = nekoPosX;
+      mousePosY = nekoPosY;
+    }
+  } catch {}
+  function savePos() {
+    try {
+      sessionStorage.setItem(POSE_KEY, JSON.stringify({ x: nekoPosX, y: nekoPosY }));
+    } catch {}
+  }
+  window.addEventListener("pagehide", savePos);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") savePos();
+  });
+
+  // Per-variant voice on click/pick-up; pitch jitter so it varies each time
+  const VOICE_FILES = {
+    classic: "voice-classic.wav",
+    dog: "voice-dog.wav",
+    tora: "voice-tora.wav",
+    maia: "voice-maia.wav",
+    vaporwave: "voice-vaporwave.wav",
+    ramxcodes: "voice-ramxcodes.wav",
+  };
+  let voiceAudio = null;
+  let voiceFor = null;
+  function meow() {
+    try {
+      const file = VOICE_FILES[variant] || VOICE_FILES.classic;
+      if (!voiceAudio || voiceFor !== file) {
+        voiceAudio = new Audio((window.ONEKO_BASE || "/oneko/") + file);
+        voiceAudio.volume = 0.45;
+        voiceFor = file;
+      }
+      voiceAudio.currentTime = 0;
+      voiceAudio.playbackRate = 1.0 + Math.random() * 0.3;
+      voiceAudio.play().catch(() => {});
+    } catch {}
+  }
 
   function parseLocalStorage(key, fallback) {
     try {
@@ -271,11 +322,15 @@
         forceSleep = false;
         sleep();
       }
+      clampIntoViewport();
+      nekoEl.style.left = `${nekoPosX - 16}px`;
+      nekoEl.style.top = `${nekoPosY - 16}px`;
     });
 
     // Handle dragging of the cat
     nekoEl.addEventListener("mousedown", (e) => {
       if (e.button !== 0) return;
+      meow();
       window.dispatchEvent(new CustomEvent("oneko:click"));
       grabbing = true;
       let startX = e.clientX;

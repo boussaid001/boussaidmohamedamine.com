@@ -604,3 +604,47 @@
         '<a class="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted/80" href="blog.html">Back to blog</a></div>';
     });
 })();
+
+/* ---- copy buttons on code blocks ---- */
+(function () {
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('button');
+    if (!btn) return;
+    // auto-detect: button inside a zone containing a code block, or labelled Copy
+    var zone = btn.closest('[data-copy-zone]') ||
+      (btn.textContent.trim() === 'Copy' ? (btn.closest('div') && findCodeZone(btn)) : null);
+    if (!zone) return;
+    var code = zone.querySelector('code') || zone.querySelector('pre');
+    if (!code) return;
+    var text = code.innerText;
+    var done = function () {
+      var orig = btn.innerHTML;
+      btn.innerHTML = orig.replace('Copy', 'Copied');
+      setTimeout(function () { btn.innerHTML = orig; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
+  });
+  function findCodeZone(btn) {
+    var el = btn;
+    for (var i = 0; i < 6 && el.parentElement; i++) {
+      el = el.parentElement;
+      if (el.querySelector('pre code') || el.querySelector('pre')) return el;
+    }
+    return null;
+  }
+})();
+
+/* ---- click-to-copy chips ([class=cp]) ---- */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('.cp');
+    if (!el) return;
+    var text = el.textContent;
+    var done = function () {
+      var orig = el.textContent;
+      el.textContent = 'copied!';
+      setTimeout(function () { el.textContent = orig; }, 1200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
+  });
+})();
