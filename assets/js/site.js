@@ -23,6 +23,13 @@
     });
   }
 
+  /* ---------- mac key hint: Ctrl -> Cmd ---------- */
+  if (/Mac|iPhone|iPad|iPod/.test(navigator.platform || '')) {
+    document.querySelectorAll('kbd').forEach(function (k) {
+      if (k.textContent.trim() === 'Ctrl') k.textContent = '⌘';
+    });
+  }
+
   /* ---------- scroll reveal ---------- */
   var revealEls = document.querySelectorAll('.animate-in-up-on-view');
   if (revealEls.length && 'IntersectionObserver' in window) {
@@ -172,10 +179,10 @@
 
   /* ---------- quote card ---------- */
   var QUOTES = [
-    { q: 'Man is made by his belief. As he believes, so he is.', a: 'Bhagavad Gita' },
-    { q: 'Arise, awake, and stop not till the goal is reached.', a: 'Katha Upanishad' },
-    { q: 'A man who is master of patience is master of everything else.', a: 'George Savile' },
-    { q: 'You have a right to perform your prescribed duty, but you are not entitled to the fruits of actions.', a: 'Bhagavad Gita' },
+    { q: 'First, solve the problem. Then, write the code.', a: 'John Johnson' },
+    { q: 'Make it work, make it right, make it fast.', a: 'Kent Beck' },
+    { q: 'Simplicity is the soul of efficiency.', a: 'Austin Freeman' },
+    { q: 'Code is like humor. When you have to explain it, it is bad.', a: 'Cory House' },
     { q: 'I\'ll take a potato chip... AND EAT IT!', a: 'Light Yagami, Death Note' }
   ];
   var qmount = document.getElementById('quote-card');
@@ -404,7 +411,7 @@
     var html = '';
     for (var i = 0; i < 5; i++) {
       html += '<div class="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:gap-4">' +
-        '<div class="hidden news-thumb shrink-0 animate-pulse rounded-lg bg-muted sm:block"></div>' +
+        '<div class="news-thumb shrink-0 animate-pulse rounded-lg bg-muted"></div>' +
         '<div class="min-w-0 flex-1 space-y-2">' +
         '<div class="h-5 w-3/4 animate-pulse rounded bg-muted"></div>' +
         '<div class="h-4 w-full animate-pulse rounded bg-muted"></div>' +
@@ -428,13 +435,13 @@
     }
     var html = '';
     items.forEach(function (a, i) {
-      var img = a.social_image || a.cover_image;
+      var img = a.cover_image || a.social_image;
       var tags = (a.tag_list || []).slice(0, 3).map(function (t) {
         return '<span class="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">' + esc(t) + '</span>';
       }).join('');
       html += '<div class="blog-list-item" style="animation-delay:' + (i * 40) + 'ms">' +
         '<article class="group relative isolate py-4"><a class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4" href="post.html?id=' + a.id + '">' +
-        (img ? '<img alt="" class="hidden news-thumb shrink-0 rounded-lg border border-border object-cover sm:block" loading="lazy" onerror="this.style.display=\'none\'" src="' + esc(img) + '">' : '') +
+        (img ? '<img alt="" class="news-thumb shrink-0 rounded-lg border border-border" loading="lazy" decoding="async" onload="this.style.opacity=1" onerror="this.style.display=\'none\'" src="' + esc(img) + '">' : '') +
         '<div class="min-w-0 flex-1 space-y-1">' +
         '<h3 class="text-lg font-semibold leading-tight group-hover:text-primary transition-colors z-10">' + esc(a.title) + '</h3>' +
         (a.description ? '<p class="line-clamp-2 text-sm text-secondary">' + esc(a.description) + '</p>' : '') +
@@ -464,10 +471,15 @@
         seen[a.id] = 1;
         return true;
       });
+      items.sort(function (a, b) { return new Date(b.published_at) - new Date(a.published_at); });
       cache[slug] = items;
+      try { localStorage.setItem('news:cache:' + (slug || ''), JSON.stringify(items.slice(0, 30))); } catch (e) {}
       if (slug === active) renderItems(items);
     }).catch(function () {
       if (slug !== active) return;
+      var fallback = null;
+      try { fallback = JSON.parse(localStorage.getItem('news:cache:' + (slug || ''))); } catch (e) {}
+      if (fallback && fallback.length) { cache[slug] = fallback; renderItems(fallback); return; }
       list.innerHTML = '';
       stateBox.innerHTML = '<div class="py-8 text-center"><p class="mb-3 text-sm text-muted-foreground">Couldn\'t load news right now.</p>' +
         '<button type="button" data-retry="1" class="' + PILL_BASE + PILL_OFF + '">Retry</button></div>';
@@ -578,6 +590,11 @@
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (a) {
       document.title = a.title + ' | Mohamed Amine Boussaid';
+      var ogSet = { 'og:title': a.title, 'og:description': a.description || '', 'og:image': a.cover_image || a.social_image || '' };
+      Object.keys(ogSet).forEach(function (k) {
+        var m = document.querySelector('meta[property="' + k + '"]');
+        if (m) m.setAttribute('content', ogSet[k]);
+      });
       document.getElementById('np-title').textContent = a.title;
       var d = new Date(a.published_at);
       document.getElementById('np-date').textContent = isNaN(d) ? '' : d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 (async function oneko() {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const nekoEl = document.createElement("div");
   let nekoPosX = 32,
     nekoPosY = 88,
@@ -50,7 +51,7 @@
     tora: "voice-tora.wav",
     maia: "voice-maia.wav",
     vaporwave: "voice-vaporwave.wav",
-    ramxcodes: "voice-ramxcodes.wav",
+    ramxcodes: "voice-boussaid.wav",
   };
   let voiceAudio = null;
   let voiceFor = null;
@@ -141,9 +142,9 @@
       ["classic", "Classic"],
       ["dog", "Dog"],
       ["tora", "Tora"],
-      ["maia", "Maia (maia.crimew.gay)"],
-      ["vaporwave", "Vaporwave (nya.rest)"],
-      ["ramxcodes", "RamxCodes"],
+      ["maia", "Maia"],
+      ["vaporwave", "Vaporwave"],
+      ["ramxcodes", "Boussaid"],
     ],
     spriteSets = {
       idle: [[-3, -3]],
