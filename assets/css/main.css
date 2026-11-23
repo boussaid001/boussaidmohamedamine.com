@@ -7,3 +7,6 @@
 [data-tooltip]::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--card);color:var(--foreground);border:1px solid var(--border);padding:5px 12px;border-radius:8px;font-size:12px;font-weight:500;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;box-shadow:0 6px 16px rgba(0,0,0,.18);z-index:60}
 [data-tooltip]::before{content:"";position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%) translateY(4px);border:5px solid transparent;border-top-color:var(--border);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:60}
 [data-tooltip]:hover::after,[data-tooltip]:hover::before,[data-tooltip]:focus-visible::after,[data-tooltip]:focus-visible::before{opacity:1;transform:translateX(-50%) translateY(0)}
+
+[data-hero-avatar]{background-image:url('../profile/boussaid-portrait.webp')}
+.dark [data-hero-avatar]{background-image:url('../profile/boussaid-portrait-white.webp')}
