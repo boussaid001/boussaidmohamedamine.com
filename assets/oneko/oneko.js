@@ -51,7 +51,7 @@
     tora: "voice-tora.wav",
     maia: "voice-maia.wav",
     vaporwave: "voice-vaporwave.wav",
-    ramxcodes: "voice-boussaid.wav",
+    boussaid: "voice-boussaid.wav",
   };
   let voiceAudio = null;
   let voiceFor = null;
@@ -144,7 +144,7 @@
       ["tora", "Tora"],
       ["maia", "Maia"],
       ["vaporwave", "Vaporwave"],
-      ["ramxcodes", "Boussaid"],
+      ["boussaid", "Boussaid"],
     ],
     spriteSets = {
       idle: [[-3, -3]],
@@ -280,7 +280,7 @@
     if (storedVariantRaw) {
       try {
         const storedVariant = JSON.parse(storedVariantRaw);
-        variant = storedVariant;
+        variant = storedVariant === "ramxcodes" ? "boussaid" : storedVariant;
       } catch {
         // If parsing fails, fall back to random variant
         const randomIndex = Math.floor(Math.random() * variants.length);

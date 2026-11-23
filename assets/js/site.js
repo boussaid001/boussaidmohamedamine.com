@@ -203,7 +203,7 @@
     ['tora', 'Tora'],
     ['maia', 'Maia'],
     ['vaporwave', 'Vaporwave'],
-    ['ramxcodes', 'Boussaid']
+    ['boussaid', 'Boussaid']
   ];
   var petPicker = null;
   function closePetPicker() { if (petPicker) { petPicker.remove(); petPicker = null; } }
